@@ -1,0 +1,10 @@
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+function Guest({ children }) {
+  const auth = useSelector((state) => state.auth);
+
+  return !auth.isAuthenticated ? children : <Navigate to="/" />;
+}
+
+export default Guest;
